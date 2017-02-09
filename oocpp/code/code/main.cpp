@@ -14,9 +14,12 @@
 int main() {
     InformationPersonal();
     cout << endl;
+    
     MilesPerGallon();
     cout << endl << endl;
+    
     CircuitBoardPrice();
 
+    cout << endl;
     return 0;
 }
