@@ -19,7 +19,7 @@
 #include <string>
 using namespace std;
 
-int PersonalInformation()
+int InformationPersonal()
 {
     string name, address, phone, major;
 

@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		A04B864F1E4C0A9E00542FE6 /* code */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = code; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04B86521E4C0A9E00542FE6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A04B86591E4C0AF000542FE6 /* PersonalInformation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PersonalInformation.hpp; sourceTree = "<group>"; };
+		A04B86591E4C0AF000542FE6 /* InformationPersonal.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InformationPersonal.hpp; sourceTree = "<group>"; };
 		A04B865A1E4C0AF000542FE6 /* MilesPerGallon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MilesPerGallon.hpp; sourceTree = "<group>"; };
 		A04B865B1E4C0AF000542FE6 /* CircuitBoardPrice.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CircuitBoardPrice.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +60,7 @@
 		A04B86511E4C0A9E00542FE6 /* code */ = {
 			isa = PBXGroup;
 			children = (
-				A04B86591E4C0AF000542FE6 /* PersonalInformation.hpp */,
+				A04B86591E4C0AF000542FE6 /* InformationPersonal.hpp */,
 				A04B865A1E4C0AF000542FE6 /* MilesPerGallon.hpp */,
 				A04B865B1E4C0AF000542FE6 /* CircuitBoardPrice.hpp */,
 				A04B86521E4C0A9E00542FE6 /* main.cpp */,
@@ -255,6 +255,7 @@
 				A04B86581E4C0A9E00542FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

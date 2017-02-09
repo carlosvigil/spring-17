@@ -8,11 +8,11 @@
 
 #include <iostream>
 #include "MilesPerGallon.hpp"
-#include "PersonalInformation.hpp"
+#include "InformationPersonal.hpp"
 #include "CircuitBoardPrice.hpp"
 
 int main() {
-    PersonalInformation();
+    InformationPersonal();
     cout << endl;
     MilesPerGallon();
     cout << endl << endl;
