@@ -15,7 +15,6 @@
 
 // 13. Circuit Board Price
 // calculate sale price with 35% profit
-
 using namespace std;
 
 int CircuitBoardPrice()

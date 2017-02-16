@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A04B86531E4C0A9E00542FE6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A04B86521E4C0A9E00542FE6 /* main.cpp */; };
+		A0B12ADB1E54C839003A3332 /* InterestEarned.hpp in Sources */ = {isa = PBXBuildFile; fileRef = A0B12ADA1E54C839003A3332 /* InterestEarned.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		A04B86591E4C0AF000542FE6 /* InformationPersonal.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InformationPersonal.hpp; sourceTree = "<group>"; };
 		A04B865A1E4C0AF000542FE6 /* MilesPerGallon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MilesPerGallon.hpp; sourceTree = "<group>"; };
 		A04B865B1E4C0AF000542FE6 /* CircuitBoardPrice.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CircuitBoardPrice.hpp; sourceTree = "<group>"; };
+		A0B12ADA1E54C839003A3332 /* InterestEarned.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InterestEarned.hpp; sourceTree = "<group>"; };
+		A0B12ADC1E563EBE003A3332 /* MonthlyPayments.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MonthlyPayments.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +66,9 @@
 				A04B86591E4C0AF000542FE6 /* InformationPersonal.hpp */,
 				A04B865A1E4C0AF000542FE6 /* MilesPerGallon.hpp */,
 				A04B865B1E4C0AF000542FE6 /* CircuitBoardPrice.hpp */,
+				A0B12ADC1E563EBE003A3332 /* MonthlyPayments.hpp */,
 				A04B86521E4C0A9E00542FE6 /* main.cpp */,
+				A0B12ADA1E54C839003A3332 /* InterestEarned.hpp */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B12ADB1E54C839003A3332 /* InterestEarned.hpp in Sources */,
 				A04B86531E4C0A9E00542FE6 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

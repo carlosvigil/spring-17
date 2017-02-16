@@ -22,7 +22,7 @@ int MilesPerGallon()
     int gas = 15, miles = 375;
     
     cout << "This vehicle gives " << miles / gas;
-    cout << "MPG.";
+    cout << "MPG." << endl;
     
     return 0;
 }

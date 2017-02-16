@@ -10,16 +10,24 @@
 #include "MilesPerGallon.hpp"
 #include "InformationPersonal.hpp"
 #include "CircuitBoardPrice.hpp"
+#include "InterestEarned.hpp"
+#include "MonthlyPayments.hpp"
 
 int main() {
-    InformationPersonal();
-    cout << endl;
-    
-    MilesPerGallon();
-    cout << endl << endl;
-    
-    CircuitBoardPrice();
+//    InformationPersonal();
+//    cout << endl;
+//    
+//    MilesPerGallon();
+//    cout << endl;
+//    
+//    CircuitBoardPrice();
+//    cout << endl;
+//
+//    InterestEarned();
+//    cout << endl;
 
+    MonthlyPayments();
     cout << endl;
+
     return 0;
 }
