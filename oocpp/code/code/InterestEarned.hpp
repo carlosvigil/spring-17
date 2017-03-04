@@ -5,6 +5,17 @@
 //  Created by Carlos Vigil on 2/15/17.
 //  Copyright © 2017 Carlos Vigil. All rights reserved.
 //
+/*
+ Carlos Vigil
+ Dr. Laurasi
+ GCC OOC++
+ Feb. 16th 2017
+ 
+ Chapter 3 Code Assignment
+ Interest Earned
+ Calculate compound interest in Savings account
+*/
+ 
 #include <iomanip>
 #include <cmath>
 using namespace std;

@@ -12,22 +12,30 @@
 #include "CircuitBoardPrice.hpp"
 #include "InterestEarned.hpp"
 #include "MonthlyPayments.hpp"
+#include "WordGame.hpp"
+#include "midterm.hpp"
 
 int main() {
-//    InformationPersonal();
-//    cout << endl;
-//    
-//    MilesPerGallon();
-//    cout << endl;
-//    
-//    CircuitBoardPrice();
-//    cout << endl;
+//  InformationPersonal();
+//  cout << endl;
 //
-//    InterestEarned();
-//    cout << endl;
+//  MilesPerGallon();
+//  cout << endl;
+//
+//  CircuitBoardPrice();
+//  cout << endl;
+//
+//  InterestEarned();
+//  cout << endl;
+//
+//  MonthlyPayments();
+//  cout << endl;
+//
+//  WordGame();
+//  cout << endl;
+//
+  midterm();
+  cout << endl;
 
-    MonthlyPayments();
-    cout << endl;
-
-    return 0;
+  return 0;
 }

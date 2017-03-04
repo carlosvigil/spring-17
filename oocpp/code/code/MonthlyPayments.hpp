@@ -5,14 +5,24 @@
 //  Created by Carlos Vigil on 2/16/17.
 //  Copyright © 2017 Carlos Vigil. All rights reserved.
 //
+/*
+ Carlos Vigil
+ Dr. Laurasi
+ GCC OOC++
+ Feb. 16th 2017
+ 
+ Chapter 3 Code Assignment
+ Monthly Payments
+ Calculate monthly payments on a loan
+ */
+
 #include <iomanip>
 #include <cmath>
 using namespace std;
 
 int MonthlyPayments()
 {
-    // define variables
-    double
+    double              // define variables
         interestRate,   // monthly interest rate
         loanAmount,     // the amount of the loan
         monthlyBalance, // the amount to be paid each month
@@ -31,19 +41,22 @@ int MonthlyPayments()
     cin >> numPayments;                 // Store the number of payments
 
     // Calculations
-    interestRate /= 100;                      // convert annual interest rate to decimal form
-    interestPaid = loanAmount * interestRate; // calculate total interest
-    total = loanAmount + interestPaid;        // calculate total of loan and interest
-    interestRate /= 12;                       // convert interest rate from to monthly rate
-    // intermission
-    double // split monthly balance equation into variables for readibility
+    interestRate /= 100; // convert annual interest rate to decimal form
+        // calculate total interest
+    interestPaid = loanAmount * (pow((1 + interestRate / numPayments), numPayments)) - loanAmount;
+    total = loanAmount + interestPaid; // calculate total of loan and interest
+    interestRate /= 12;            // convert interest rate from to monthly rate
+
+    // intermission...
+    double // split monthly balance equation into variables for readability
         monthBalanceEquationOne = interestRate * pow((1 + interestRate), numPayments),
         monthBalanceEquationTwo = pow((1 + interestRate), numPayments) - 1;
-    // continue Calculations
+
+    // ...continue Calculations
     monthlyBalance = monthBalanceEquationOne / monthBalanceEquationTwo * loanAmount;
 
     // Display information
-    cout << "\nLoan Amount:" // Loan amount
+    cout << "\nLoan Amount:"           // Loan amount
          << setprecision(2) << fixed
          << right << setw(15)
          << "$" << loanAmount
@@ -52,19 +65,19 @@ int MonthlyPayments()
          << right << setw(12)
          << interestRate * 100 << "%"
 
-         << "\nNumber of payments:" // Number of payments
+         << "\nNumber of payments:"    // Number of payments
          << right << setw(16)
          << numPayments
 
-         << "\nMonthly Payment:" // Monthly payment
+         << "\nMonthly Payment:"       // Monthly payment
          << right << setw(13)
          << "$" << monthlyBalance
 
-         << "\nAmount Paid Back:" // Total to be paid
+         << "\nAmount Paid Back:"      // Total to be paid
          << right << setw(10)
          << "$" << total
 
-         << "\nInterest paid:" // Interest paid
+         << "\nInterest paid:"         // Interest paid
          << right << setw(14)
          << "$" << interestPaid;
 

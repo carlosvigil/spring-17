@@ -9,7 +9,7 @@
 
 public class WordGame
 {
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
         String
             name, // stores the user's name
@@ -48,7 +48,7 @@ public class WordGame
 • His or her name
 • His or her age
 • The name of a city
-• The name of a college 
+• The name of a college
 • A profession
 • A type of animal
 • A pet’s name
