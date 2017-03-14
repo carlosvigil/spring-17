@@ -1,1 +1,108 @@
-<template lang="pug">div#app  f7-views(navbar-through='')    f7-view(main='', url='/', :dynamic-navbar='true')      f7-navbar        f7-nav-left        f7-nav-center(sliding='') Vue-Gap-7        f7-nav-right      f7-pages#pages        f7-page.navbar-fixed          f7-searchbar(cancel-link='Cancel',                       placeholder='Search Twitter',                       :clear-button='true',                       v-on:change='onChange')          f7-list.tweetList(media-list='')            f7-list-item(                 v-on:click='onClick(tweet)',                 link='/tweet/',                 v-for='tweet in tweets',                 :media='tweet.user.profile_image_html',                 :title='tweet.user.name',                 :subtitle='"@"+tweet.user.screen_name',                 :text='tweet.text'            )</template><script>  import cb from './twitter.js'  import store from './store.js'  let self  function addData(tweets) {    for (let tweet of tweets) {      tweet.user.profile_image_html = '<img src="' + tweet.user.profile_image_url + '">'//               Tue Feb 28 01:36:34 +0000 2017      moment(tweet.created_at, 'ddd MMM DD HH:mm:ss ZZ YYYY')      console.log(tweet.created_at, typeof(tweet.created_at))      let elapsed = null      tweet.past = elapsed    }// Tue Feb 28 01:36:34 +0000 2017// moment("20111031", "YYYYMMDD").fromNow(); // 5 years ago// moment("20120620", "YYYYMMDD").fromNow(); // 5 years ago// moment().startOf('day').fromNow();        // 21 hours ago// moment().endOf('day').fromNow();          // in 3 hours// moment().startOf('hour').fromNow();       // in 34 minutes  }  export default {    name: 'app',    data () {      return {        tweets : store.tweets      }    },    created () {      self = this    },    methods: {      onChange: function (event) {        let term = event.target.value        if (!term) {          self.$data.tweets.splice(0, self.$data.tweets.length)        }        else {          window.f7.showPreloader('hmm..')          cb.__call(              "search_tweets",              "q=" + term,              function (reply) {                let result = reply.statuses                console.log("here be tweets", result)                store.tweets = result                self.$data.tweets.length = 0                self.$data.tweets.push(...result)                addData(self.tweets)                window.f7.hidePreloader()              },              true // this parameter required          )}      },      onClick: function (tweet) {        store.selectedTweet = tweet      }}}</script><style lang="sass?indentedSyntax">.tweetList  .item-media    img      border-radius: 20%</style>
+<template lang="pug">
+div#app
+  f7-login-screen#loginScreen
+    f7-view
+      f7-pages
+        f7-page.loginPage(login-screen="")
+          f7-login-screen-title mb2 twitter
+          img.tlogo(src="assets/twitter.png")
+          f7-list
+            f7-list-button(title="Sign In", cv-on:click="onSignIn")
+            f7-list-label
+              p Welcome!
+
+  f7-views(navbar-through='')
+    f7-view(main='', url='/', :dynamic-navbar='true')
+      f7-navbar
+        f7-nav-left
+        f7-nav-center(sliding='') mb2 twitter
+        f7-nav-right
+      f7-pages#pages
+        f7-page.navbar-fixed
+          f7-searchbar(cancel-link='Cancel',
+                       placeholder='Search Twitter',
+                       :clear-button='true',
+                       v-on:change='onChange')
+          f7-list.tweetList(media-list='')
+            f7-list-item(
+                 v-on:click='onClick(tweet)',
+                 link='/tweet/',
+                 v-for='tweet in tweets',
+                 :media='tweet | imgFilter',
+                 :title='tweet | userFilter',
+                 :subtitle='tweet | screenNameFilter',
+                 :text='tweet.text'
+            )
+</template>
+
+<script>
+  import cb from './twitter.js'
+  import filters from './filters.js'
+  import store from './store.js'
+
+  let self
+
+  export default {
+
+    created () {
+      self = this
+    },
+
+    data () {
+      return { tweets: store.tweets }
+    },
+
+    filters,
+
+    methods: {
+      onChange (event) {
+        const term = event.target.value
+
+        if (!term) {
+          self.$data.tweets.splice(0, self.$data.tweets.length)
+        } else {
+          window.f7.showPreloader('hmm..')
+          cb.__call(
+              'search_tweets',
+              `q= ${term}`,
+              (reply, rate_limit_status) => {
+                const result = reply.statuses
+
+                console.log('here be tweets', rate_limit_status, result)
+
+                store.tweets.splice(0, store.tweets.length)
+                self.tweets.push(...result)
+                window.f7.hidePreloader()
+              },
+              // This parameter required
+              true
+          )
+        }
+      },
+
+      onClick (tweet) {
+        store.selectedTweet = tweet
+      },
+
+      onSignIn () {
+        window.f7.showPreloader()
+        twitter.login()
+      }
+    },
+
+    name: 'app'
+  }
+</script>
+
+<style lang="sass?indentedSyntax">
+.tweetList
+  img
+    border-radius: 20%
+
+.loginPage
+  text-align: center
+
+.tlogo
+  width: 200px
+
+</style>

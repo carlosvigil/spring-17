@@ -10,7 +10,8 @@ new Vue({
   render: h => h(Home),
   // Framework7 Parameters
   framework7: {
-      root: '#app', //Should be same as app el
-      animateNavBackIcon: true,
-      routes: Routes
+    // Should be same as app el
+    root: '#app',
+    animateNavBackIcon: true,
+    routes: Routes
   }})

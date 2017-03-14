@@ -5,10 +5,12 @@
 //  Created by Carlos Vigil on 2/28/17.
 //  Copyright © 2017 Carlos Vigil. All rights reserved.
 //
+#include <iostream>
+#include <iomanip>
 #include <string>
 using namespace std;
 
-int midterm() {
+int main() {
     //  variable declarations
     string first_name,           // store user inputted first name
            last_name;            // store user inputted last name

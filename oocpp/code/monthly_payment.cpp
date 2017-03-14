@@ -10,17 +10,18 @@
  Dr. Laurasi
  GCC OOC++
  Feb. 16th 2017
- 
+
  Chapter 3 Code Assignment
  Monthly Payments
  Calculate monthly payments on a loan
  */
 
+#include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
 
-int MonthlyPayments()
+int main()
 {
     double              // define variables
         interestRate,   // monthly interest rate
@@ -64,6 +65,7 @@ int MonthlyPayments()
          << "\nMonthly Interest Rate:" // Monthly interest rate
          << right << setw(12)
          << interestRate * 100 << "%"
+
 
          << "\nNumber of payments:"    // Number of payments
          << right << setw(16)

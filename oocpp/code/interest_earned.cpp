@@ -10,17 +10,17 @@
  Dr. Laurasi
  GCC OOC++
  Feb. 16th 2017
- 
+
  Chapter 3 Code Assignment
  Interest Earned
  Calculate compound interest in Savings account
 */
- 
+#include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
 
-int InterestEarned()
+int main()
 {
     double            // variable definition
         interestRate, // the rate of interest is stored here
@@ -28,7 +28,7 @@ int InterestEarned()
         interest,     // the calculated amount of total interest
         total;        // a calculated total adding the interest and principal
     int compound;     // the amount of times the interest is compounding
-    
+
     // Ask for input
     cout << "Hello there, let's calculate the amount of interest you've earned."
          << endl

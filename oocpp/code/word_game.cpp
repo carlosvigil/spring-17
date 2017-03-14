@@ -1,5 +1,5 @@
 //
-//  WordGame.hpp
+//  WordGame.cpp
 //  code
 //
 //  Created by Carlos Vigil on 2/17/17.
@@ -10,15 +10,17 @@
  Dr. Laurasi
  GCC OOC++
  Feb. 16th 2017
- 
+
  Chapter 3 Code Assignment
  Word Game
  Collect information and display it in a text story.
 */
 
+#include <iostream>
 #include <string>
+using namespace std;
 
-int WordGame()
+int main()
 {
     string
         name,       // stores the user's name
@@ -52,7 +54,7 @@ int WordGame()
          << " went to college at " << college << ".\n" << name
          << " graduated and went to work as a " << profession << ".\nThen, "
          << name << " adopted a(n) " << animal << " named " << pet
-         << ".\nThey both lived happily ever after!";
+         << ".\nThey both lived happily ever after!" << endl;
 
     // Exit the dialog
     return 0;

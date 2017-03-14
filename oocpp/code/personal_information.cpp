@@ -15,11 +15,11 @@
 
 // 14. Personal Information
 // Displays my personal info, each item on a new line.
-
+#include <iostream>
 #include <string>
 using namespace std;
 
-int InformationPersonal()
+int main()
 {
     string name, address, phone, major;
 

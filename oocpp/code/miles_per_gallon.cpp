@@ -15,14 +15,15 @@
 
 // 10. Miles Per Gallon
 // calculate fixed MPG
+#include <iostream>
 using namespace std;
 
-int MilesPerGallon()
+int main()
 {
     int gas = 15, miles = 375;
-    
+
     cout << "This vehicle gives " << miles / gas;
     cout << "MPG." << endl;
-    
+
     return 0;
 }
