@@ -9,4 +9,6 @@ mobile-ii/twitter-app/webpack\.config\.js
 
 mobile-ii/twitter-app/package\.json
 
+mobile-ii/twitter-app/src/twitter.js
+
 oocpp/code/code\.xcodeproj/

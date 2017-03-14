@@ -1,7 +1,7 @@
 /** Carlos Vigil
  * Dr. Horvath
  * GCC Java
- * January 25, 2017 
+ * January 25, 2017
  *
  * Hello World example to confirm IDE installation. */
 

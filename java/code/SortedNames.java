@@ -38,7 +38,7 @@ public class SortedNames {
             }
             else {
                 System.out.println(name3);
-                System.out.println(name2); 
+                System.out.println(name2);
             }
         }
         else if (name2.compareTo(name1) < 0 && name2.compareTo(name3) < 0) {
@@ -49,7 +49,7 @@ public class SortedNames {
             }
             else {
                 System.out.println(name3);
-                System.out.println(name1); 
+                System.out.println(name1);
             }
         }
         else {
@@ -60,7 +60,7 @@ public class SortedNames {
             }
             else {
                 System.out.println(name2);
-                System.out.println(name1); 
+                System.out.println(name1);
             }
         }
 
