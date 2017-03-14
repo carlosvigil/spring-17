@@ -11,4 +11,8 @@ mobile-ii/twitter-app/package\.json
 
 mobile-ii/twitter-app/src/twitter.js
 
-oocpp/code/code\.xcodeproj/
+/**.class
+
+/**.sublime-workspace
+
+/**.sublime-project
