@@ -7,7 +7,7 @@ div#app
           f7-login-screen-title mb2 twitter
           img.tlogo(src="assets/twitter.png")
           f7-list
-            f7-list-button(title="Sign In", cv-on:click="onSignIn")
+            f7-list-button(title="Sign In", v-on:click="onSignIn")
             f7-list-label
               p Welcome!
 
@@ -36,9 +36,9 @@ div#app
 </template>
 
 <script>
-  import cb from './twitter.js'
-  import filters from './filters.js'
-  import store from './store.js'
+  import twitter from 'twitter'
+  import filters from 'filters'
+  import store from 'store'
 
   let self
 
@@ -85,7 +85,7 @@ div#app
       },
 
       onSignIn () {
-        window.f7.showPreloader()
+        window.f7.showPreloader('Hang on to something!')
         twitter.login()
       }
     },
@@ -103,6 +103,6 @@ div#app
   text-align: center
 
 .tlogo
-  width: 200px
+  width: 132px
 
 </style>
