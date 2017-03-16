@@ -36,62 +36,62 @@ div#app
 </template>
 
 <script>
-  import twitter from 'twitter'
-  import filters from 'filters'
-  import store from 'store'
+import twitter from './twitter'
+import filters from './filters'
+import store from './store'
 
-  let self
+let self
 
-  export default {
+export default {
 
-    created () {
-      self = this
-    },
+  created () {
+    self = this
+  },
 
-    data () {
-      return { tweets: store.tweets }
-    },
+  data () {
+    return { tweets: store.tweets }
+  },
 
-    filters,
+  filters,
 
-    methods: {
-      onChange (event) {
-        const term = event.target.value
+  methods: {
+    onChange (event) {
+      const term = event.target.value
 
-        if (!term) {
-          self.$data.tweets.splice(0, self.$data.tweets.length)
-        } else {
-          window.f7.showPreloader('hmm..')
-          cb.__call(
-              'search_tweets',
-              `q= ${term}`,
-              (reply, rate_limit_status) => {
-                const result = reply.statuses
+      if (!term) {
+        self.$data.tweets.splice(0, self.$data.tweets.length)
+      } else {
+        window.f7.showPreloader('hmm..')
+        cb.__call(
+            'search_tweets',
+            `q= ${term}`,
+            (reply, rate_limit_status) => {
+              const result = reply.statuses
 
-                console.log('here be tweets', rate_limit_status, result)
+              console.log('here be tweets', rate_limit_status, result)
 
-                store.tweets.splice(0, store.tweets.length)
-                self.tweets.push(...result)
-                window.f7.hidePreloader()
-              },
-              // This parameter required
-              true
-          )
-        }
-      },
-
-      onClick (tweet) {
-        store.selectedTweet = tweet
-      },
-
-      onSignIn () {
-        window.f7.showPreloader('Hang on to something!')
-        twitter.login()
+              store.tweets.splice(0, store.tweets.length)
+              self.tweets.push(...result)
+              window.f7.hidePreloader()
+            },
+            // This parameter required
+            true
+        )
       }
     },
 
-    name: 'app'
-  }
+    onClick (tweet) {
+      store.selectedTweet = tweet
+    },
+
+    onSignIn () {
+      window.f7.showPreloader('Hang on to something!')
+      twitter.login()
+    }
+  },
+
+  name: 'app'
+}
 </script>
 
 <style lang="sass?indentedSyntax">

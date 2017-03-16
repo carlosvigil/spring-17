@@ -21,3 +21,5 @@ mobile-ii/twitter-app/src/twitter.js
 *.class
 *.sublime-project
 *.sublime-workspace
+mobile-ii/twitter-app/src/jsconfig.json
+mobile-ii/twitter-app/jsconfig.json

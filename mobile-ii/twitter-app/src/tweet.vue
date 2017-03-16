@@ -19,8 +19,8 @@ f7-page(hide-bars-on-scroll='')
 </template>
 
 <script>
-import filters from 'filters'
-import store from 'store'
+import filters from './filters'
+import store from './store'
 
 export default {
   data () {
