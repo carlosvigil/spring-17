@@ -1,7 +1,6 @@
 import util from './util'
 
 const filters = {
-
   dateFilter (tweet) {
     const now = new Date()
     const createdAt = new Date(tweet.created_at)
@@ -24,7 +23,7 @@ const filters = {
 
   screenNameFilter (tweet) {
     if (tweet.retweeted_status) {
-      return `@${tweet.retweeted_status.user.screen_name} (RT by 
+      return `@${tweet.retweeted_status.user.screen_name} (RT by
           ${tweet.user.screen_name})`
     }
 

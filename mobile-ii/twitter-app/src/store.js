@@ -1,5 +1,6 @@
 const store = {
   tweets: [],
+  searchResults: [],
   clickedTweet: undefined
 }
 

@@ -6,7 +6,7 @@ f7-page(hide-bars-on-scroll='')
       .facebook-avatar
         img(:src='tweet | imgUrlFilter', width='64', height='64')
       .facebook-name {{tweet | userFilter}}
-      .facebook-date {{tweet | dateDiff}}
+      .facebook-date {{tweet | dateFilter}}
     .card-content
       p {{tweet.text}}
       img(v-if='tweet.entities.media',
