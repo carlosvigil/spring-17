@@ -2,14 +2,13 @@
 #include <iomanip>
 using namespace std;
 
-int main()
-{
+int main() {
     // variable declarations
-    int total_floors = 0,   // the number of floors in the hotel
+    int total_floors = 0,    // the number of floors in the hotel
         rooms = 0,          //
-        total_rooms = 0,    //
-        occupied_rooms = 0, //
-        total_occupied = 0, //
+        total_rooms = 0,     //
+        occupied_rooms = 0,  //
+        total_occupied = 0,  //
         total_unoccupied = 0;
     double percent_occupied = 0.0; //
 
@@ -18,10 +17,9 @@ int main()
     cin >> total_floors;
 
     // loop through each floor
-    for (int i = 0; i < total_floors; i++)
-    {
+    for (int i = 0; i < total_floors; i++) {
         // let user know what floor we're asking about
-        cout << "\nFloor: " << i + 1 << endl;
+        cout << "\nFloor: "<< i + 1 << endl;
         // ask for floor variable value
         cout << "How many rooms are there? ";
         cin >> rooms;
