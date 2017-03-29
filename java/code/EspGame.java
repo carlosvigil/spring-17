@@ -31,21 +31,21 @@ public class EspGame {
 	public static void main(String[] args) {
 		// Variable declaration
 		int number;							// Stores a random number
-		int score; 							// Stores the user's correct guesses
-		Random newRandom = new Random(5); 	// creates a random number
-		String userGuess; 					// stores the user's string
+		int score = 0; 						// Stores the user's correct guesses
+		Random newRandom = new Random(); 	// creates a random number
+		String userGuess;					// stores the user's string
 
 		// introduce the game and color options
 		intro();
 		// run the game 10 times
-		for (int i = 10; i != 0; i--) {
+		for (int i = 9; i != 0; i--) {
 			// generate a new random number and store it
-			number = newRandom.nextInt();
+			number = newRandom.nextInt(5);
 			// store user's input
 			userGuess = getString();
 			// main game function adds 1 to score if correct guess
 			score += gameLogic(userGuess, number);
-			System.out.println("\nRounds left: " + i);
+			System.out.println("\nRounds left: " + i + "\nGuess again.");
 		}
 		// return total score
 		totalScore(score);
@@ -57,8 +57,9 @@ public class EspGame {
 	public static void intro() {
 		System.out.print("Welcome to the ESP Game!\n"
 				+ "We'll take 10 turns, then show you a score.\n"
-				+ "One of these colors will be randomly chosen, guess which one:\n"
-				+ "- red\n- green\n- blue\n- orange\n- yellow\n");
+				+ "One of these colors will be randomly chosen:\n"
+				+ "- red\n- green\n- blue\n- orange\n- yellow\n"
+				+ "Guess which one by typing it in and pressing enter.\n");
 	}
 
 	/**
@@ -67,20 +68,25 @@ public class EspGame {
 	 */
 	public static String getString() {
 		Scanner keyboard = new Scanner(System.in);	// scans for key input
-		String userGuess; 							// stores the user's string
+		String userGuess = ""; 						// stores the user's string
 		boolean valid;								// checks for a string match
 
-		valid = userGuess == "red"
-				|| userGuess == "blue" || userGuess == "green"
-				|| userGuess == "orange" || userGuess == "yellow";
-
 		// get string
-		userGuess = keyboard.next();
+		userGuess = keyboard.nextLine();
+		userGuess = userGuess.toLowerCase();
+
+		valid = userGuess.equals("red")
+				|| userGuess.equals("blue") || userGuess.equals("green")
+				|| userGuess.equals("orange") || userGuess.equals("yellow");
+
 		// ask for valid input
 		while (!valid)
 		{
 			System.out.println("try typing the color exactly as it was shown");
-			userGuess = keyboard.next();
+			userGuess = keyboard.nextLine();
+			valid = userGuess.equals("red")
+					|| userGuess.equals("blue") || userGuess.equals("green")
+					|| userGuess.equals("orange") || userGuess.equals("yellow");
 		}
 		// return validated string
 		return userGuess;
@@ -93,53 +99,55 @@ public class EspGame {
 	 * @return An integer to add to the score variable in main
 	*/
 	public static int gameLogic(String userGuess, int number) {
+        int point = 0; // the return value after switch
 		// Define a switch to compare the strings
 		switch (number) {
 		case 0:
-			if (userGuess == "red") {
+			if (userGuess.equals("red")) {
 				System.out.println("You got it!");
-				return 1;
+				point = 1;
 			} else {
 				System.out.println("Nope");
-				return 0;
+				point = 0;
 			}
 			break;
 		case 1:
-			if (userGuess == "green") {
+			if (userGuess.equals("green")) {
 				System.out.println("You got it!");
-				return 1;
+				point = 1;
 			} else {
 				System.out.println("Nope");
-				return 0;
+				point = 0;
 			}
 			break;
 		case 2:
-			if (userGuess == "blue") {
+			if (userGuess.equals("blue")) {
 				System.out.println("You got it!");
-				return 1;
+				point = 1;
 			} else {
 				System.out.println("Nope");
-				return 0;
+				point = 0;
 			}
 			break;
 		case 3:
-			if (userGuess == "orange") {
+			if (userGuess.equals("orange")) {
 				System.out.println("You got it!");
-				return 1;
+				point = 1;
 			} else {
 				System.out.println("Nope");
-				return 0;
+				point = 0;
 			}
 			break;
 		case 4:
-			if (userGuess == "yellow") {
+			if (userGuess.equals("yellow")) {
                 System.out.println("You got it!");
-                return 1;
+                point = 1;
             } else {
                 System.out.println("Nope");
-                return 0;
+                point = 0;
             }
         }
+		return point;
     }
 
     /**
