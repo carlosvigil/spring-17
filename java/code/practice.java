@@ -25,18 +25,23 @@
 
 public class practice {
 	public static void main(String[] args) {
+		int even = 0, odd = 0;
+
 		for (int i = 1; i <= 100; i++) {
-			isEven(i);
+			if (isEven(i)) even++; else odd++;
 		}
+		System.out.println("Even: " + even + ", Odd: " + odd);
 	}
 
 	/**
 	 */
 	public static boolean isEven(int num) {
 		if ((num % 2) == 0) {
-			System.out.println("The number is even");
+			System.out.println("The number " + num + " is even");
+			return true;
 		} else {
-			System.out.println("The number is odd");
+			System.out.println("The number " + num + " is odd");
+			return false;
 		}
 	}
 }

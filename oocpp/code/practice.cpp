@@ -2,46 +2,44 @@
   Carlos Vigil
   Dr. . Laurasi
   OOC++
-  April 4th, 2017
-  Chapter 6
 */
-
 #include <iostream>
 using namespace std;
 
-int askNumOne();
-int askNumTwo();
-void addVar(int, int);
+int input_employees();
+int input_absences(int);
+double average_absences(int, int);
 
 int main () {
-  int firstNum, secondNum;
-  firstNum = askNumOne();
-  cin.clear();
-  secondNum = askNumTwo();
-  cin.clear();
-  addVar(firstNum, secondNum);
+	int number_employees;
+	int days_absent;
+	double average_days_absent;
 
-  return 0;
+	number_employees = input_employees();
+	days_absent = input_absences(number_employees);
+
+	cin.get();
+	return 0;
 }
 
-int askNumOne () {
-  int firstNum;
+int input_employees () {
+	int num_employees;
 
-  cout << "Input the first number: ";
-  cin >> firstNum;
+	cout << "\nEnter the number of employees: ";
+	cin >> num_employees;
 
-  return firstNum;
+	return num_employees;
 }
 
-int askNumTwo () {
-  int secondNum;
+int input_absences (int employees) {
+	int total_absences;
+	int absences;
 
-  cout << "Input the second number: ";
-  cin >> secondNum;
-   return secondNum;
+	for (; employees > 0; employees--) {
+		cout << "\nEnter how times employee " << employees << " was absent: ";
+		cin >> absences;
+		total_absences += absences;
+	}
+
+	return total_absences;
 }
-
-void addVar (int firstNum, int secondNum) {
-  cout << "Those added together are: " << firstNum + secondNum << endl;
-}
-
