@@ -18,18 +18,24 @@ public class QuarterlySalesMain {
 		Scanner keyb = new Scanner(System.in);
 		int selection;
 
-		// ask how to proceed with a menu
+		// persist until user exits
 		do {
-			System.out.print("\nType one of the numbers shown and press enter."
-					+ "\n1. Enter all sales data"
-					+ "\n2. Enter data for a single quarter in a division"
-					+ "\n3. View all sales data"
-					+ "\n\nSelection: "
-			);
-			selection = keyb.nextInt();
-		} while (selection < 0);
+			// ask how to proceed with a menu
+			do {
+				System.out.print("–––––––––––––––––––––––––––––––––––––––––––––"
+						+ "\nType one of the numbers shown and press enter."
+						+ "\n1. Enter all sales data"
+						+ "\n2. Enter sales for a single quarter in a division"
+						+ "\n3. View all sales data"
+						+ "\n4. Exit"
+						+ "\n\nSelection: "
+				);
+				selection = keyb.nextInt();
+			} while (selection < 0);
+			System.out.println("–––––––––––––––––––––––––––––––––––––––––––––");
 
-		majorSelectionLogic(selection);
+			majorSelectionLogic(selection);
+		} while (selection != 4);
 	}
 
 	private static void majorSelectionLogic(int selection) {
