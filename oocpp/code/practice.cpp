@@ -2,24 +2,40 @@
   Carlos Vigil
   Dr. T. Laurasi
   OOC++
+  April 26th, 2017
+  Chapter 7
 */
 #include <iostream>
 using namespace std;
 
-int main()
-{
-	const int NUM_FISH = 20;
-	int fish[NUM_FISH];
+int main() {
+    const int NUM_EMPLOYEES = 10;
+    int employee_id[NUM_EMPLOYEES];
+    double weekly_gross_pay[NUM_EMPLOYEES];
 
-    for (int i = 0; i < NUM_FISH; i++) {
-        cout << "\nFisherman " << i+1 << endl << "How many fish were caught?\n";
-        cin >> fish[i];
-        cout << "ok, " << fish[i] << " fish were caught\n";
+    // Ask for and enter information
+    for (int i = 0; i < NUM_EMPLOYEES; i++) {
+        // Announce which employee to write info for
+        cout << "Employee " << i + 1 << endl << "Enter ID number: ";
+        // Accept employee id
+        cin >> employee_id[i];
+        cin.clear();
+
+        // Loop through second array
+        for (int j = 0; j < NUM_EMPLOYEES; j++) {
+            cout << "Enter weekly gross pay: ";
+            cin >> weekly_gross_pay[j];
+            cin.clear();
+        }
     }
-	// You must finish this program. It should ask how
-	// many fish were caught by fishermen 1-20, and
-	// store this data in the array fish.
 
-	return 0;
+    // Output stored information
+    for (int i = 0; i < NUM_EMPLOYEES; i++) {
+        // Announce which employee is being displayed
+        cout << "\nEmployee " << i + 1 << ", ID " << employee_id[i];
+
+        for (int j = 0; j < NUM_EMPLOYEES; j++) {
+            cout << "\nWeekly gross pay: " << weekly_gross_pay[j];
+        }
+    }
 }
-

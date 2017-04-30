@@ -42,14 +42,14 @@ public class ChargeAccount {
     */
     public ChargeAccount (int accountNum) {
         if (sequentialSearch(accountNum, accounts)) {
-            System.out.println("Account number recognized.");
+            System.out.println("Account number recognized.\n");
         } else {
-            System.out.println("Incorrect account number.");
+            System.out.println("Incorrect account number.\n");
         }
     }
 
     /**
-     * sequentialSearch() checks for an account number in a data store of accounts.
+     * sequentialSearch() checks for an account number in an array of accounts.
      * @param search int to compare.
      * @param array to search in.
      * @return Boolean which let's the calling method know of a match.
@@ -62,7 +62,6 @@ public class ChargeAccount {
             found = search == array[index] ? true : false;
             index++;
         }
-
         return found;
     }
 }
