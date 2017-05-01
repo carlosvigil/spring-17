@@ -116,7 +116,7 @@ public class QuarterlySales {
         // loop through quarters
         for (int i = 0; i < QUARTERS; i++) {
             for (int j = 0; j < DIVISIONS; j++) {
-
+                // TODO:
             }
         }
 
