@@ -22,7 +22,7 @@ public class QuarterlySalesMain {
 		do {
 			// ask how to proceed with a menu
 			do {
-				System.out.print("–––––––––––––––––––––––––––––––––––––––––––––"
+				System.out.print("\n–––––––––––––––––––––––––––––––––––––––––––––"
 						+ "\nType one of the numbers shown and press enter."
 						+ "\n1. Enter all sales data"
 						+ "\n2. Enter sales for a single quarter in a division"
@@ -59,12 +59,12 @@ public class QuarterlySalesMain {
 
 		do {
 			System.out.print("\nEnter a division number(1-6): ");
-			division = keyb.nextInt();
+			division = keyb.nextInt() - 1;
 		} while (division < 1 || division > 6);
 
 		do {
 			System.out.print("Enter a quarter number(1-4): ");
-			quarter = keyb.nextInt();
+			quarter = keyb.nextInt() - 1;
 		} while (quarter < 1 || quarter > 4);
 
 		salesThisYear.setQuarterSales(division, quarter);

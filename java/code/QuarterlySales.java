@@ -13,8 +13,9 @@ public class QuarterlySales {
     final int QUARTERS = 4;
     // arrays for sales storage
     double[][] sales;
+    double[] companyQuarterSales;
     // variables for calculations
-    double companySales, companyQuarter, quarterSales, quarterAverage, divisionSales;
+    double companyYearSales, quarterAverage, divisionSales;
     // scanner for keyboard input
     Scanner keyb = new Scanner(System.in);
 
@@ -76,14 +77,14 @@ public class QuarterlySales {
             divisionSales = 0.0;
 
             // division labeling
-            System.out.print("\nDivision " + (i+1));
+            System.out.print("\n  Division " + (i+1));
 
             // within each quarter
             for (int j = 0; j < QUARTERS; j++) {
+                // add to division sales accumulator
                 divisionSales += sales[i][j];
-
                 // output divison quarter sales
-                System.out.print("\nQuarter " + (j+1) + " sales: $" + sales[i][j]);
+                System.out.print("\n    Quarter " + (j+1) + ": $" + sales[i][j]);
 
                 // Quarter comparisons
                 if (j > 0 && sales[i][j] > sales[i][j-1]) {
@@ -101,7 +102,7 @@ public class QuarterlySales {
             }
 
             // output division year sales
-            System.out.println("\nYear sales for division: $" + divisionSales);
+            System.out.println("\n  Year: $" + divisionSales);
         }
     }
 
@@ -109,18 +110,40 @@ public class QuarterlySales {
      * getCompanySales displays sales totals for the company
     */
     public void getCompanySales () {
-        companySales = 0.0;
-        companyQuarter = 0.0;
-        // companySales +=
+        // set year and quarterly sales accumulators
+        companyYearSales = 0.0;
+        companyQuarterSales = new double[QUARTERS];
+
+        // report labeling
+        System.out.println("\nCOMPANY SALES");
 
         // loop through quarters
-        for (int i = 0; i < QUARTERS; i++) {
-            for (int j = 0; j < DIVISIONS; j++) {
-                // TODO:
+        for (int q = 0; q < QUARTERS; q++) {
+            // add each division's sales to the accumulators
+            for (int d = 0; d < DIVISIONS; d++) {
+                companyQuarterSales[q] += sales[d][q];
+                companyYearSales += sales[d][q];
+            }
+
+            // output quarter
+            System.out.print("\n  Quarter " + (q+1) +": $"
+                    + companyQuarterSales[q]);
+
+            // quarter comparisons
+            if (q > 0 && companyQuarterSales[q] > companyQuarterSales[q-1]) {
+                // if greater than last quarter, display difference
+                System.out.print("  (+ $"
+                        + (companyQuarterSales[q] - companyQuarterSales[q-1]) + ")"
+                );
+            }
+            else if (q > 0 && companyQuarterSales[q] < companyQuarterSales[q-1]) {
+                // if lesser than last quarter, display difference
+                System.out.print("  (- $"
+                        + (companyQuarterSales[q-1] - companyQuarterSales[q]) + ")"
+                );
             }
         }
-
         // output company sales
-        System.out.println("\nYear sales for company: $" + companySales);
+        System.out.println("\n\n  Year total: $" + companyYearSales);
     }
 }
