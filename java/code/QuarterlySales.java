@@ -16,6 +16,7 @@ public class QuarterlySales {
     double[] companyQuarterSales;
     // variables for calculations
     double companyYearSales, quarterAverage, divisionSales;
+    int highestDivision;
     // scanner for keyboard input
     Scanner keyb = new Scanner(System.in);
 
@@ -33,7 +34,6 @@ public class QuarterlySales {
         // loop through divisions
         for (int i = 0; i < DIVISIONS; i++) {
             System.out.print("\nDivision " + (i+1) + ", ");
-
             // loop through quarters in each division
             for (int j = 0; j < QUARTERS; j++) {
                 System.out.print( "Quarter " + (j+1)
@@ -59,51 +59,10 @@ public class QuarterlySales {
     */
     public void getAllSales () {
         // report labeling
-        System.out.println("\nFULL YEAR SALES REPORT");
+        System.out.println("\nFULL YEAR SALES REPORT\n");
 
-        getDivisionalSales();
         getCompanySales();
-    }
-
-    /**
-     * getDivisionalSales displays sales for all divisions.
-    */
-    public void getDivisionalSales () {
-        // report labeling
-        System.out.println("\nDIVISIONAL SALES");
-
-        // within each division
-        for (int i = 0; i < DIVISIONS; i++) {
-            divisionSales = 0.0;
-
-            // division labeling
-            System.out.print("\n  Division " + (i+1));
-
-            // within each quarter
-            for (int j = 0; j < QUARTERS; j++) {
-                // add to division sales accumulator
-                divisionSales += sales[i][j];
-                // output divison quarter sales
-                System.out.print("\n    Quarter " + (j+1) + ": $" + sales[i][j]);
-
-                // Quarter comparisons
-                if (j > 0 && sales[i][j] > sales[i][j-1]) {
-                    // if greater than last quarter, display difference
-                    System.out.print("  (+ $" + (sales[i][j] - sales[i][j-1]) + ")");
-                }
-                else if (j > 0 && sales[i][j] < sales[i][j-1]) {
-                    // if lesser than last quarter, display difference
-                    System.out.print("  (- $" + (sales[i][j-1] - sales[i][j]) + ")");
-                }
-
-                // TODO: find top and averages
-
-                // outside of quarter
-            }
-
-            // output division year sales
-            System.out.println("\n  Year: $" + divisionSales);
-        }
+        getDivisionalSales();
     }
 
     /**
@@ -113,37 +72,55 @@ public class QuarterlySales {
         // set year and quarterly sales accumulators
         companyYearSales = 0.0;
         companyQuarterSales = new double[QUARTERS];
-
+        quarterAverage = 0.0;
         // report labeling
         System.out.println("\nCOMPANY SALES");
-
         // loop through quarters
         for (int q = 0; q < QUARTERS; q++) {
-            // add each division's sales to the accumulators
+            // set highest comparator variable to zero
+            highestDivision = 0;
+            // add each division's sales to the accumulators and compare highest
             for (int d = 0; d < DIVISIONS; d++) {
                 companyQuarterSales[q] += sales[d][q];
                 companyYearSales += sales[d][q];
+                if (sales[d][q] > sales[highestDivision][q]) { highestDivision = d; }
             }
-
             // output quarter
-            System.out.print("\n  Quarter " + (q+1) +": $"
-                    + companyQuarterSales[q]);
-
-            // quarter comparisons
-            if (q > 0 && companyQuarterSales[q] > companyQuarterSales[q-1]) {
-                // if greater than last quarter, display difference
-                System.out.print("  (+ $"
-                        + (companyQuarterSales[q] - companyQuarterSales[q-1]) + ")"
-                );
-            }
-            else if (q > 0 && companyQuarterSales[q] < companyQuarterSales[q-1]) {
-                // if lesser than last quarter, display difference
-                System.out.print("  (- $"
-                        + (companyQuarterSales[q-1] - companyQuarterSales[q]) + ")"
-                );
-            }
+            System.out.printf("\n  Quarter %s: $%,3.2f", (q+1), companyQuarterSales[q]);
+            // quarter comparison
+            if (q > 0) { System.out.printf(" (%+,3.2f)", (companyQuarterSales[q] - companyQuarterSales[q-1])); }
+            // calculate and output average
+            quarterAverage = companyQuarterSales[q] / DIVISIONS;
+            System.out.printf("\n    Average: $%,3.2f", quarterAverage);
+            // output division with highest sales for the quarter
+            System.out.printf("\n    Highest Division: %s\n", (highestDivision + 1));
         }
         // output company sales
-        System.out.println("\n\n  Year total: $" + companyYearSales);
+        System.out.printf("\n  Year total: $%,3.2f\n\n", companyYearSales);
+    }
+
+    /**
+     * getDivisionalSales displays sales for all divisions.
+    */
+    public void getDivisionalSales () {
+        // report labeling
+        System.out.println("\nDIVISIONAL SALES");
+        // within each division
+        for (int i = 0; i < DIVISIONS; i++) {
+            divisionSales = 0.0;
+            // division labeling
+            System.out.print("\n  Division " + (i+1));
+            // within each quarter
+            for (int j = 0; j < QUARTERS; j++) {
+                // add to division sales accumulator
+                divisionSales += sales[i][j];
+                // output divison quarter sales
+                System.out.printf("\n    Quarter %s: $%,3.2f", (j+1), sales[i][j]);
+                // quarter comparison
+                if (j > 0) { System.out.printf(" (%+,3.2f)", (sales[i][j] - sales[i][j-1])); }
+            }
+            // output division year sales
+            System.out.printf("\n  Year: $%,3.2f\n", divisionSales);
+        }
     }
 }

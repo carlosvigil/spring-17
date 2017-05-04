@@ -59,14 +59,14 @@ public class QuarterlySalesMain {
 
 		do {
 			System.out.print("\nEnter a division number(1-6): ");
-			division = keyb.nextInt() - 1;
+			division = keyb.nextInt();
 		} while (division < 1 || division > 6);
 
 		do {
 			System.out.print("Enter a quarter number(1-4): ");
-			quarter = keyb.nextInt() - 1;
+			quarter = keyb.nextInt();
 		} while (quarter < 1 || quarter > 4);
 
-		salesThisYear.setQuarterSales(division, quarter);
+		salesThisYear.setQuarterSales((division - 1), (quarter - 1));
     }
 }

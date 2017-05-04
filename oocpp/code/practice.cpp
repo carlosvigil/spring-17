@@ -2,73 +2,66 @@
   Carlos Vigil
   Dr. T. Laurasi
   OOC++
-  April 26th, 2017
+  May 4th, 2017
   Chapter 7
 */
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main() {
-    // array length
-    const int NUM_EMPLOYEES = 10;
-    // array definition
-    int employee_id[NUM_EMPLOYEES];
-    double weekly_gross_pay[NUM_EMPLOYEES];
+const int STUDENTS = 5;
+const int TESTS = 4;
 
-    // define accepted input
-    cout << "\nUse only numbers to input information.\n";
+void setData(string [], double [][TESTS]);
+int getAverage (int, int);
 
-    // Ask for and store information
-    for (int i = 0; i < NUM_EMPLOYEES; i++) {
-        // status variable for uniqueness
-        bool unique_id = true;
+int main () {
+    // define arrays
+    string student_names[STUDENTS];
+    char letter_grades[STUDENTS];
+    double test_scores[STUDENTS][TESTS];
+    // give user instructions
+    cout << "\nEnter each of the 5 students names and test scores.\n";
+    // populate data
+    setData(student_names, test_scores);
+    // end program
+    return 0;
+}
 
-        do {
-            // reset uniqueness variable
-            unique_id = true;
+void setData (string names[], double scores[][TESTS]) {
+    // loop through students
+    for (int i = 0; i < STUDENTS; i++) {
+        cout << "\nStudent: " << i + 1 << endl;
+        cout << "  Name: ";
+        // store names
+        cin >> names[i];
 
-            // Announce which employee to write info for
-            cout << "\nEmployee " << i + 1 << endl << "Enter ID number: ";
-            // Store user entered employee id
-            cin >> employee_id[i];
-            cin.clear();
-
-            // check for validity
-            // greater than zero
-            if (employee_id[i] < 1) {
-                //notify user
-                cout << "\nERROR: Employee ID cannot be 0 or negative.\n";
-                // skip other checks
-                continue;
-            }
-            // unique ID
-            for (int j = 0; j < NUM_EMPLOYEES; j++) {
-                if (i != j && employee_id[i] == employee_id[j]) {
-                    // set status
-                    unique_id = false;
-                    // cout << endl << j << " flag is " << unique_id << endl;
-                    break;
-                }
-                    // cout << endl << j << " flag is " << unique_id << endl;
-            }
-            // if not unique, notify user
-            if (!unique_id) {
-                cout << "\nERROR: Use a unique number for an ID.\n";
-            }
-        } while (employee_id[i] < 1 || !unique_id);
-
-        // ask for, store, and validate gross pay
-        do {
-            cout << "Enter weekly gross pay: ";
-            cin >> weekly_gross_pay[i];
-            cin.clear();
-        } while (weekly_gross_pay[i] < 0.0);
+        cout << "\n  Test Scores\n";
+        // loop through tests
+        for (int j = 0; j < TESTS; j++) {
+            cout << "  " << j + 1 << ": ";
+            // store test scores
+            do {
+                cin >> scores[i][j];
+            } while ();
+        }
     }
+    cout << "\nOK\n";
+}
 
-    // Output stored information
-    for (int i = 0; i < NUM_EMPLOYEES; i++) {
-        // Announce which employee is being displayed
-        cout << "\nEmployee ID: " << employee_id[i]
-             << ", weekly gross pay: $" << weekly_gross_pay[i] << endl;
+void getData (string names[], int scores[][TESTS], char grades[]) {
+    for (int i = 0; i < STUDENTS; i++) {
+        cout << "\n" << names[i] << "\nSC"
     }
 }
+
+int getAverage (int total, int divisor) {
+    return total / divisor;
+}
+
+/*
+ * Write a program that uses an array of string objects to hold the five
+ * student names, an array of five characters to hold the five students’ letter
+ * grades, and five arrays of four doubles to hold each student’s set of test
+ * scores.
+ */
