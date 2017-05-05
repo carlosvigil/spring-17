@@ -8,12 +8,13 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
+// constants
 const int STUDENTS = 5;
 const int TESTS = 4;
-
-void setData(string [], double [][TESTS]);
-int getAverage (int, int);
+// prototypes
+void setData (string [], double [][TESTS]);
+void getData (string [], double [][TESTS], char []);
+int getAverage (double, int);
 
 int main () {
     // define arrays
@@ -24,6 +25,8 @@ int main () {
     cout << "\nEnter each of the 5 students names and test scores.\n";
     // populate data
     setData(student_names, test_scores);
+    // display data
+    getData(student_names, test_scores, letter_grades);
     // end program
     return 0;
 }
@@ -31,11 +34,13 @@ int main () {
 void setData (string names[], double scores[][TESTS]) {
     // loop through students
     for (int i = 0; i < STUDENTS; i++) {
-        cout << "\nStudent: " << i + 1 << endl;
+        cout << "\nStudent " << i + 1 << endl;
         cout << "  Name: ";
         // store names
-        cin >> names[i];
-
+        getline(cin, names[i]);
+        cin.ignore();
+        cin.clear();
+        // title
         cout << "\n  Test Scores\n";
         // loop through tests
         for (int j = 0; j < TESTS; j++) {
@@ -43,19 +48,39 @@ void setData (string names[], double scores[][TESTS]) {
             // store test scores
             do {
                 cin >> scores[i][j];
-            } while ();
+            } while (scores[i][j] < 0 || scores[i][j] > 100);
         }
     }
-    cout << "\nOK\n";
 }
 
-void getData (string names[], int scores[][TESTS], char grades[]) {
+void getData (string names[], double scores[][TESTS], char grades[]) {
+    // declare acculumator
+    double total_score;
+    // title
+    cout << "\n\nSTUDENT GRADES\n";
+    // iterate through students
     for (int i = 0; i < STUDENTS; i++) {
-        cout << "\n" << names[i] << "\nSC"
+        // set accumulator to zero
+        total_score = 0.0;
+        // display name, then, scores
+        cout << "\nStudent: " << names[i] << "\n  Scores: ";
+        // iterate through tests scores
+        for (int j = 0; j < TESTS; j++) {
+            // output formatting
+            if (j < TESTS - 1) {
+                cout << scores[i][j] << ", ";
+            } else {
+                cout << scores[i][j];
+            }
+            // accumulation
+            total_score += scores[i][j];
+        }
+        // display average
+        cout << "\n  Grade: " << getAverage(total_score, TESTS) << endl;
     }
 }
 
-int getAverage (int total, int divisor) {
+int getAverage (double total, int divisor) {
     return total / divisor;
 }
 
