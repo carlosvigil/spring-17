@@ -37,7 +37,7 @@ void setData (string names[], double scores[][TESTS]) {
         cout << "\nStudent " << i + 1 << endl;
         cout << "  Name: ";
         // store names
-        getline(cin, names[i]);
+        getline(cin, names[i]); // FIXME: Read the book, learn input strings
         cin.ignore();
         cin.clear();
         // title
@@ -76,7 +76,7 @@ void getData (string names[], double scores[][TESTS], char grades[]) {
             total_score += scores[i][j];
         }
         // display average
-        cout << "\n  Grade: " << getAverage(total_score, TESTS) << endl;
+        cout << "\n  Grade: " << getAverage(total_score, TESTS) << endl; // TODO: set letter grades
     }
 }
 
