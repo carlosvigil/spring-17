@@ -38,7 +38,11 @@ int main () {
             // store users' input
             cin >> selection;
             cin.ignore();
-        } while (selection < 0 || selection > 3);
+            // error message
+            if (selection < 1 || selection > 3) {
+                cout << "\nERROR: Make a selection from the displayed numbers.";
+            }
+        } while (selection < 1 || selection > 3);
         // menu formatting
         cout << "–––––––––––––––––––––––––––––––––––––––––––––";
         // send selection to logic
