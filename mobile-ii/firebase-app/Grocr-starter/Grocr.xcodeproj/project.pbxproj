@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		941A68C9047CFC613264BFB7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F599D9265F4B40571F432E78 /* libPods.a */; };
-		A015FF0D1EA18AB7009A5C01 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A015FF0C1EA18AB7009A5C01 /* GoogleService-Info.plist */; };
+		A02E8FA21EC23A03007D455B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A02E8FA11EC23A03007D455B /* GoogleService-Info.plist */; };
 		BB2385621B3DD5AB0079CD01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2385611B3DD5AB0079CD01 /* AppDelegate.swift */; };
 		BB2385641B3DD5AB0079CD01 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2385631B3DD5AB0079CD01 /* LoginViewController.swift */; };
 		BB2385671B3DD5AB0079CD01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB2385651B3DD5AB0079CD01 /* Main.storyboard */; };
@@ -22,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		9BA2A2DB5BA4733818152B9B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		A015FF0C1EA18AB7009A5C01 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A02E8FA11EC23A03007D455B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A898E3AE11425E4495FAC93A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BB23855C1B3DD5AB0079CD01 /* Grocr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grocr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2385601B3DD5AB0079CD01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				BB23855E1B3DD5AB0079CD01 /* Grocr */,
-				A015FF0C1EA18AB7009A5C01 /* GoogleService-Info.plist */,
 				BB23855D1B3DD5AB0079CD01 /* Products */,
 				5BCB7DE7572521D09DC0AA00 /* Pods */,
 				C8A8CAF31E6679C1B66E9218 /* Frameworks */,
@@ -84,6 +83,7 @@
 		BB23855E1B3DD5AB0079CD01 /* Grocr */ = {
 			isa = PBXGroup;
 			children = (
+				A02E8FA11EC23A03007D455B /* GoogleService-Info.plist */,
 				BB2385881B3DD9550079CD01 /* Models */,
 				BB2385811B3DD8310079CD01 /* Controllers */,
 				BB2385821B3DD8490079CD01 /* Layouts */,
@@ -219,7 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB2385671B3DD5AB0079CD01 /* Main.storyboard in Resources */,
-				A015FF0D1EA18AB7009A5C01 /* GoogleService-Info.plist in Resources */,
+				A02E8FA21EC23A03007D455B /* GoogleService-Info.plist in Resources */,
 				BB23856C1B3DD5AB0079CD01 /* LaunchScreen.xib in Resources */,
 				BB2385691B3DD5AB0079CD01 /* Images.xcassets in Resources */,
 			);
